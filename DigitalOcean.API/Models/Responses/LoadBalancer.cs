@@ -17,7 +17,7 @@ namespace DigitalOcean.API.Models.Responses {
 		/// An attribute containing the public-facing IP address of the Load Balancer.
 		/// </summary>
 		[JsonProperty("ip")]
-		public string IpAddress { get; set; }
+		public string Ip { get; set; }
 
 		/// <summary>
 		/// The load balancing algorithm used to determine which backend Droplet will be selected by a client.

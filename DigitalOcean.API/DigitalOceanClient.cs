@@ -3,6 +3,7 @@ using DigitalOcean.API.Helpers;
 using DigitalOcean.API.Http;
 using RestSharp;
 using RestSharp.Serializers.NewtonsoftJson;
+using JsonNetSerializer = RestSharp.Serializers.NewtonsoftJson.JsonNetSerializer;
 
 namespace DigitalOcean.API {
     public class DigitalOceanClient : IDigitalOceanClient {
@@ -13,7 +14,7 @@ namespace DigitalOcean.API {
             var client = new RestClient(DigitalOceanApiUrl) {
                 UserAgent = "digitalocean-api-dotnet",
             };
-            client.UseNewtonsoftJson();
+
             client.AddDefaultHeader("Authorization", string.Format("Bearer {0}", token));
 
             _connection = new Connection(client);
