@@ -16,7 +16,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter("id", loadBalancerId, ParameterType.UrlSegment)
             };
-            return _connection.ExecuteRequest<LoadBalancer>("load_balancers/{id}", parameters, null, "load_balancers");
+            return _connection.ExecuteRequest<LoadBalancer>("load_balancers/{id}", parameters, null, "load_balancer");
         }
 
         public Task<IReadOnlyList<LoadBalancer>> GetAll() {
@@ -24,7 +24,7 @@ namespace DigitalOcean.API.Clients {
         }
 
         public Task<LoadBalancer> Create(Models.Requests.LoadBalancer loadBalancer) {
-            return _connection.ExecuteRequest<LoadBalancer>("load_balancers", null, loadBalancer, "load_balancers", Method.POST);
+            return _connection.ExecuteRequest<LoadBalancer>("load_balancers", null, loadBalancer, "load_balancer", Method.POST);
         }
 
         public Task Delete(string loadBalancerId) {
@@ -38,7 +38,7 @@ namespace DigitalOcean.API.Clients {
             var parameters = new List<Parameter> {
                 new Parameter("id", loadBalancerId, ParameterType.UrlSegment)
             };
-            return _connection.ExecuteRequest<LoadBalancer>("load_balancers/{id}", parameters, loadBalancer, "load_balancers", Method.PUT);
+            return _connection.ExecuteRequest<LoadBalancer>("load_balancers/{id}", parameters, loadBalancer, "load_balancer", Method.PUT);
         }
 
         public Task AddDroplets(string loadBalancerId, Models.Requests.LoadBalancerDroplets dropletIds) {
